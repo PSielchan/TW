@@ -7,17 +7,12 @@ public class Producer extends Thread{
     }
     @Override
     public void run(){
-        for (int i = 0; i<100;i++){
-            System.out.println("prod");
-            while (buf.size()>=100){
-                try {
-                    wait();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
+        for (int i = 0; i<10;i++){
+            try {
+                buf.put(i);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-            buf.put(i);
-            notifyAll();
         }
     }
 }
