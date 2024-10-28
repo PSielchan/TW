@@ -13,7 +13,7 @@ public class semafor {
                 wait();
             }
             _stan = false;
-            System.out.println("koniec");
+            //System.out.println("koniec");
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
             System.out.println("Wątek został przerwany.");
@@ -23,6 +23,6 @@ public class semafor {
     }
     public synchronized void V(){
         _stan=true;
-        notify();
+        notifyAll();
     }
 }
